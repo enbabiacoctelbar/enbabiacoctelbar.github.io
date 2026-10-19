@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Enbabia Cóctel Bar</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--g:#e8c36a;--g2:#b8862b;--bg:#07060a;--b:#2a6bff;--p:#9b4dff;--t:#f3ead7;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:radial-gradient(circle at 15% 0,#1b1042 0,transparent 42%),radial-gradient(circle at 95% 35%,#0a2a63 0,transparent 38%),#07060a;background-color:#07060a;color:var(--t);font:400 16px/1.65 Montserrat,system-ui,sans-serif;overflow-x:hidden}
+.s,h1,h2{font-family:"Great Vibes","Brush Script MT",cursive;font-weight:400}
+.gold{background:linear-gradient(100deg,#fff1b8,var(--g) 45%,var(--g2));-webkit-background-clip:text;background-clip:text;color:transparent}
+svg.i{fill:none;stroke:var(--g);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 4vw;padding-top:calc(10px + env(safe-area-inset-top,0px));background:rgba(7,6,10,.85);backdrop-filter:blur(10px);border-bottom:1px solid #e8c36a33}
+.logo{display:flex;align-items:center;gap:8px;font:400 30px "Great Vibes",cursive;color:var(--g);text-decoration:none}
+.logo svg{width:30px;height:28px}
+nav ul{display:flex;gap:18px;list-style:none;padding:0}
+nav a{color:var(--t);text-decoration:none;font-size:14px;transition:color .2s}
+nav a:hover{color:var(--g)}
+.lg{display:flex;gap:4px}
+.lg button{background:none;border:1px solid transparent;border-radius:8px;font-size:20px;padding:2px 4px;cursor:pointer;opacity:.6}
+.lg button.on,.lg button:hover{opacity:1;border-color:var(--g)}
+.bg{display:none;background:none;border:1px solid var(--g);color:var(--g);border-radius:8px;font-size:22px;padding:2px 10px;cursor:pointer}
+@media(max-width:940px){.bg{display:block}
+nav{position:fixed;inset-inline:0;top:0;padding-top:calc(66px + env(safe-area-inset-top,0px));background:rgba(7,6,10,.97);transform:translateY(-110%);transition:transform .35s;z-index:-1;border-bottom:1px solid #e8c36a55}
+nav.open{transform:none}
+nav ul{flex-direction:column;gap:0;padding:8px 6vw 16px}
+nav a{display:block;padding:12px 0;font-size:17px;border-bottom:1px solid #e8c36a22}}
+section{position:relative;padding:90px 6vw;max-width:1200px;margin:auto}
+#home{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:20px;padding-top:110px}
+@media(max-width:820px){#home{grid-template-columns:1fr;text-align:center}}
+h1{font-size:clamp(76px,15vw,170px);line-height:1}
+.sub{letter-spacing:.5em;font-size:clamp(14px,2.6vw,22px);margin:4px 0 18px}
+.tag{font-family:"Great Vibes",cursive;font-size:clamp(28px,5vw,44px);color:var(--g);line-height:1.2;margin-bottom:26px}
+.btn{display:inline-block;border:0;cursor:pointer;text-decoration:none;font:600 15px Montserrat,sans-serif;padding:13px 26px;border-radius:40px;margin:6px;color:#1a1204;background:linear-gradient(135deg,#fff1b8,var(--g),var(--g2));box-shadow:0 0 24px #e8c36a55;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 0 40px #e8c36a99}
+.btn.o{background:none;color:var(--g);border:1px solid var(--g);box-shadow:none}
+.stage{perspective:900px;height:340px;display:grid;place-items:center}
+.ring{position:relative;width:150px;height:200px;transform-style:preserve-3d;animation:spin 16s linear infinite}
+.ring div{position:absolute;inset:0;display:grid;place-items:center;font-size:84px;transform:rotateY(calc(var(--k)*120deg)) translateZ(190px);filter:drop-shadow(0 0 20px var(--p))}
+@keyframes spin{to{transform:rotateY(360deg)}}
+.fl{position:absolute;width:54px;height:50px;animation:fl 6s ease-in-out infinite;filter:drop-shadow(0 0 10px #e8c36a99);pointer-events:none}
+@keyframes fl{50%{transform:translateY(-22px) rotate(8deg)}}
+h2{font-size:clamp(46px,8vw,76px);text-align:center;line-height:1.1;margin-bottom:12px}
+.lead{text-align:center;max-width:640px;margin:0 auto 40px;opacity:.88}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;perspective:1000px}
+.card{background:linear-gradient(145deg,#171326,#0b0a12);border:1px solid #e8c36a44;border-radius:18px;padding:24px;box-shadow:0 14px 40px #000a,inset 0 0 34px #9b4dff18;transition:transform .15s,border-color .2s;transform-style:preserve-3d}
+.card:hover{border-color:var(--g)}
+.card .e{font-size:48px;filter:drop-shadow(0 0 14px var(--b))}
+.card h3{color:var(--g);font-weight:600;font-size:20px;margin:6px 0}
+.card p{font-size:14px;opacity:.85}
+.pr{font:600 22px Montserrat;color:var(--g);margin:8px 0 12px}
+.card .btn{margin:0;font-size:13px;padding:10px 18px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;box-shadow:0 0 20px #25d36655}
+.eq{display:flex;gap:4px;align-items:flex-end;height:34px;margin-top:12px}
+.eq span{width:6px;height:100%;background:linear-gradient(var(--p),var(--b));border-radius:3px;transform-origin:bottom;animation:eq 1s ease-in-out infinite}
+.eq span:nth-child(2n){animation-duration:.7s}.eq span:nth-child(3n){animation-duration:1.3s}
+@keyframes eq{50%{transform:scaleY(.2)}}
+.tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:26px}.tabs button{background:none;border:1px solid #e8c36a66;color:var(--g);border-radius:30px;padding:8px 16px;font:600 14px Montserrat,sans-serif;cursor:pointer;transition:background .2s}.tabs button.on,.tabs button:hover{background:var(--g);color:#1a1204}
+.rev .st{color:var(--g);letter-spacing:3px}
+.rev p{font-style:italic;margin:8px 0}
+form{max-width:760px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:28px}
+form .w{grid-column:1/-1}
+label{font-size:13px;color:var(--g);display:block;margin-bottom:4px}
+input,select,textarea{width:100%;background:#0c0a14;border:1px solid #e8c36a55;border-radius:10px;color:var(--t);padding:12px;font:inherit}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--b);border-color:var(--b)}
+@media(max-width:560px){form{grid-template-columns:1fr}}
+.nop{color:#6cf0a0;text-align:center;font-weight:600}
+#ok{display:none;text-align:center;color:var(--g);margin-top:10px}
+footer{text-align:center;padding:50px 6vw 60px;border-top:1px solid #e8c36a33}
+.soc{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:18px 0}
+.soc a{width:50px;height:50px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--g);color:var(--g);text-decoration:none;font-weight:600;transition:transform .25s,background .25s}
+.soc a:hover{background:var(--g);color:#111;transform:translateY(-5px) rotateY(180deg)}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+:root{--g:#d4af37;--g2:#8a6a1c;--b:#d4af37;--p:#8a6a1c;--t:#efe6d2}
+body{background:radial-gradient(ellipse at 50% -5%,#2b210a 0,transparent 55%),#000;background-color:#000}
+.gold{background:linear-gradient(110deg,#8a6a1c 0%,#e8c766 20%,#fff3c0 40%,#d4af37 60%,#8a6a1c 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+h1.gold{animation:sh 7s linear infinite}
+@keyframes sh{from{background-position:120% 0}to{background-position:-120% 0}}
+header{background:rgba(0,0,0,.9);border-bottom:1px solid #d4af3744}
+nav a{font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+@media(max-width:940px){nav{background:#000}nav a{font-size:14px}}
+.btn{border-radius:2px;letter-spacing:.14em;text-transform:uppercase;font-size:12px;padding:14px 30px;background:linear-gradient(135deg,#8a6a1c,#e8c766 40%,#fff3c0 55%,#d4af37);color:#120d02;box-shadow:none}
+.btn:hover{box-shadow:0 0 30px #d4af3766}
+.btn.o:hover{background:var(--g);color:#000}
+h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:clamp(36px,6vw,58px);letter-spacing:.06em}
+h2::after{content:"";display:block;width:70px;height:1px;margin:16px auto 0;background:var(--g)}
+.card{background:#080808;border:1px solid #d4af3744;border-radius:4px;box-shadow:0 20px 50px #000}
+.card:hover{border-color:var(--g);box-shadow:0 0 36px #d4af3722}
+.card .e{display:none}
+.card svg.i{stroke-width:1.6}
+.card h3{font:600 26px "Cormorant Garamond",Georgia,serif;color:#f0d98a;letter-spacing:.03em}
+.pr{font:600 28px "Cormorant Garamond",Georgia,serif}
+.card .btn{background:none;color:var(--g);border:1px solid var(--g);box-shadow:none;padding:10px 18px;font-size:11px}
+.card .btn:hover{background:var(--g);color:#000}
+.ring svg{width:100px;height:92px;stroke-width:1.5}
+.ring div{filter:drop-shadow(0 0 14px #d4af3777)}
+.fl{opacity:.7}
+input,select,textarea{background:#050505;border-radius:2px;border-color:#d4af3766}
+.nop{color:#f0d98a}
+.soc a{border-radius:2px;font-size:12px}
+html{-webkit-text-size-adjust:100%}
+#home{min-height:100svh}
+.ring div{transform:rotateY(calc(var(--k)*120deg)) translateZ(var(--z,190px))}
+nav{max-height:100vh;overflow-y:auto}
+.lg button{min-width:34px;min-height:38px}
+.btn,.tabs button,.soc a{min-height:44px}
+@media(max-width:820px){.stage{height:280px}.fl:nth-of-type(n+3){display:none}}
+@media(max-width:520px){.ring{--z:105px;width:110px;height:150px}.ring svg{width:72px;height:66px}.stage{height:240px}section{padding:70px 5vw}.btn{padding:13px 22px}.lg{gap:0}.lg button{font-size:17px;min-width:30px;padding:2px}.logo{font-size:26px}.logo svg{width:24px}header{gap:4px}}
+@media(max-height:520px) and (orientation:landscape){#home{min-height:auto;padding-top:90px}.stage{height:220px}}
+@media(min-width:1500px){body{font-size:18px}section{max-width:1360px}}
+@media(hover:none){.card{transform:none!important}.card:hover{box-shadow:none}}
+.dock{position:fixed;inset-inline-end:14px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;flex-direction:column-reverse;gap:12px;perspective:600px}
+.dock a{position:relative;width:52px;height:52px;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle at 30% 25%,#2a2108,#000 70%);border:1px solid var(--g);box-shadow:0 0 18px #d4af3755,inset 0 0 12px #d4af3722;animation:bob 4s ease-in-out infinite;animation-delay:var(--d,0s);transition:transform .5s,box-shadow .25s}
+.dock a svg{width:26px;height:26px;stroke-width:2.4}
+.dock a:hover{transform:rotateY(360deg) scale(1.15);box-shadow:0 0 30px #d4af37aa}
+.dock a:first-child{width:64px;height:64px;background:linear-gradient(135deg,#8a6a1c,#e8c766 45%,#fff3c0 60%,#d4af37)}
+.dock a:first-child svg{width:32px;height:32px;stroke:#120d02}
+.dock a:first-child::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1px solid var(--g);animation:pr 2.4s ease-out infinite}
+@keyframes bob{50%{translate:0 -8px}}
+@keyframes pr{to{transform:scale(1.6);opacity:0}}
+.soc a:hover svg{stroke:#000}
+@media(max-width:520px){.dock{gap:8px;inset-inline-end:10px}.dock a{width:44px;height:44px}.dock a:first-child{width:56px;height:56px}.dock a svg{width:22px;height:22px}}
+.dock a,.soc a{border:0!important;box-shadow:0 0 20px var(--c,#d4af37)!important}
+.dock a svg,.soc a svg{stroke:#fff!important}
+a[aria-label=WhatsApp]{--c:#25d366;background:linear-gradient(135deg,#5cf58f,#25d366 45%,#0b9e4f)!important}
+a[aria-label=Instagram]{--c:#dd2a7b;background:radial-gradient(circle at 30% 107%,#fdf497 0,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285aeb 90%)!important}
+a[aria-label=TikTok]{background:#000!important;box-shadow:-3px -2px 0 #25f4ee,3px 2px 0 #fe2c55!important}
+a[aria-label=Facebook]{--c:#1877f2;background:linear-gradient(135deg,#4aa3ff,#1877f2 55%,#0b5bd3)!important}
+a[aria-label=Maps]{--c:#ea4335;background:linear-gradient(135deg,#ff6a5c,#ea4335 55%,#c5221f)!important}
+.dock a:first-child::after{border-color:#25d366}
+#pg{column-count:3;column-gap:14px;margin-top:30px}@media(max-width:820px){#pg{column-count:2;column-gap:10px}}
+.pi{break-inside:avoid;margin-bottom:14px;overflow:hidden;border:1px solid #d4af3744;border-radius:4px;cursor:zoom-in;background:#080808;box-shadow:0 14px 36px #000}.pi:hover{border-color:var(--g)}.pi img{display:block;width:100%;height:auto;transition:transform .6s}.pi:hover img{transform:scale(1.07)}
+.vit{position:relative;padding:12px;background:linear-gradient(135deg,#6b4f12,#f3d98a 28%,#fff3c0 48%,#b8862b 72%,#6b4f12);border-radius:6px;box-shadow:0 30px 70px #000,0 0 60px #d4af3744;transition:transform .15s}
+.vit::before{content:"";position:absolute;inset:6px;border:1px solid #000b;border-radius:3px;pointer-events:none}
+.vit img{display:block;width:100%;max-height:78vh;object-fit:cover;background:#000;border:2px solid #000}
+.vit .gl{position:absolute;inset:12px;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.08),transparent 40%),linear-gradient(115deg,transparent 35%,rgba(255,255,255,.2) 48%,transparent 60%);background-size:100% 100%,250% 100%;animation:gl 6s ease-in-out infinite}
+@keyframes gl{from{background-position:0 0,140% 0}to{background-position:0 0,-60% 0}}
+</style></head><body><script type="application/json" id="cfg">{}</script>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="crown" viewBox="0 0 64 58"><path d="M5 42 11 12 23 27 32 6 41 27 53 12 59 42ZM7 49H57"/></symbol>
+<symbol id="glass" viewBox="0 0 64 58"><path d="M8 8H56L32 34ZM32 34V52M20 52H44M40 4 46 14"/></symbol>
+<symbol id="note" viewBox="0 0 64 58"><path d="M24 44V10L50 5V38M24 44a7 5 0 1 1-7-5M50 38a7 5 0 1 1-7-5"/></symbol>
+<symbol id="ppl" viewBox="0 0 64 58"><circle cx="32" cy="16" r="8"/><circle cx="12" cy="26" r="6"/><circle cx="52" cy="26" r="6"/><path d="M16 50Q16 34 32 34T48 50M2 48Q2 36 12 36M62 48Q62 36 52 36"/></symbol>
+<symbol id="ig" viewBox="0 0 64 64"><rect x="10" y="10" width="44" height="44" rx="13"/><circle cx="32" cy="32" r="10"/><circle cx="46" cy="18" r="1.5"/></symbol>
+<symbol id="tt" viewBox="0 0 64 64"><path d="M36 10V40a9 9 0 1 1-9-9M36 10c1 7 6 11 13 11"/></symbol>
+<symbol id="fb" viewBox="0 0 64 64"><path d="M38 56V34h8l2-9H38v-5c0-3 1-5 5-5h5V8h-7c-8 0-12 5-12 12v5h-8v9h8v22"/></symbol>
+<symbol id="wa" viewBox="0 0 64 64"><path d="M32 8a24 24 0 0 0-20 37l-3 11 11-3A24 24 0 1 0 32 8ZM24 22c0 10 8 18 18 18l3-5-6-3-3 3c-3-1-6-4-7-7l3-3-3-6Z"/></symbol>
+<symbol id="mp" viewBox="0 0 64 64"><path d="M32 58C20 42 14 34 14 25a18 18 0 0 1 36 0c0 9-6 17-18 33Z"/><circle cx="32" cy="25" r="6"/></symbol>
+<symbol id="ai" viewBox="0 0 64 64"><path d="M10 12h44v32H30L18 54V44h-8z"/><path d="M32 20l2.8 6.6L41.4 29.4 34.8 32 32 38.6 29.2 32 22.6 29.4 29.2 26.6z"/></symbol>
+</defs></svg>
+
+<header>
+<a class="logo" href="#home"><svg class="i"><use href="#crown"/></svg>Enbabia</a>
+<nav id="nav"><ul>
+<li><a href="#home" data-i="n1"></a></li><li><a href="#menu" data-i="n2"></a></li><li><a href="#about" data-i="n3"></a></li><li><a href="#music" data-i="n4"></a></li><li><a href="#tables" data-i="n5"></a></li><li><a href="#clients" data-i="n6"></a></li><li><a href="#reviews" data-i="n7"></a></li><li><a href="#book" data-i="n8"></a></li>
+</ul></nav>
+<div class="lg" id="lg"><button data-l="es" title="Español">🇪🇸</button><button data-l="en" title="English">🇬🇧</button><button data-l="fr" title="Français">🇫🇷</button><button data-l="it" title="Italiano">🇮🇹</button><button data-l="ar" title="العربية">🇸🇦</button></div>
+<button class="bg" id="bg" aria-label="Menu">☰</button>
+</header>
+
+<div class="dock"><a id="wa2" href="#" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><svg class="i"><use href="#wa"/></svg></a><a href="https://www.instagram.com/enbabialibrary?utm_source=ig_web_button_share_sheet&amp;cplk=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram" style="--d:.5s"><svg class="i"><use href="#ig"/></svg></a><a href="https://maps.app.goo.gl/BDibZx5npvAoAY7r8" target="_blank" rel="noopener" aria-label="Maps" title="Maps" style="--d:2s"><svg class="i"><use href="#mp"/></svg></a></div>
+<section id="vit" style="padding:84px 4vw 0;max-width:1100px"><div class="vit tilt"><img src="https://i.imgur.com/4ZNNmMb.jpeg" alt="Enbabia Cóctel Bar" onerror="document.getElementById('vit').style.display='none'"><i class="gl"></i></div></section>
+<section id="vid" style="padding:24px 4vw 0;max-width:1100px"><div class="vit"><video src="https://i.imgur.com/uV3nmWE.mp4" autoplay muted loop playsinline controls preload="metadata" style="display:block;width:100%;max-height:78vh;background:#000;border:2px solid #000" onerror="document.getElementById('vid').style.display='none'"></video><i class="gl"></i></div></section>
+<section id="gallery" style="display:none;padding-bottom:0"><h2 class="gold" id="gal_t" style="display:none"></h2><div id="gal" style="display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:16px 0 10px"></div></section>
+<section id="home">
+<svg class="fl i" style="top:16%;left:3%"><use href="#crown"/></svg>
+<svg class="fl i" style="top:70%;left:44%;animation-delay:-2s"><use href="#glass"/></svg>
+<svg class="fl i" style="top:12%;right:6%;animation-delay:-4s"><use href="#note"/></svg>
+<svg class="fl i" style="bottom:8%;left:6%;animation-delay:-1s"><use href="#ppl"/></svg>
+<div>
+<svg class="i" style="width:70px;height:64px;filter:drop-shadow(0 0 12px #e8c36a)"><use href="#crown"/></svg>
+<h1 class="gold">Enbabia</h1>
+<div class="sub gold">CÓCTEL BAR</div>
+<p class="tag" data-i="tag"></p>
+<a class="btn" href="#book" data-i="b1"></a><a class="btn o" href="#menu" data-i="b2"></a>
+</div>
+<div class="stage"><div class="ring"><div style="--k:0"><svg class="i"><use href="#crown"/></svg></div><div style="--k:1"><svg class="i"><use href="#glass"/></svg></div><div style="--k:2"><svg class="i"><use href="#note"/></svg></div></div></div>
+</section>
+
+<section id="entry"><div class="card tilt" style="text-align:center;max-width:720px;margin:auto;padding:36px 24px"><h2 class="gold" id="en_t"></h2><p id="en_p" style="font:600 clamp(24px,4vw,34px) 'Cormorant Garamond',Georgia,serif;color:#f0d98a;margin:6px 0 10px"></p><div class="pr" id="en_pr" style="margin:0 0 14px"></div><ul id="en_c" style="list-style:none;padding:0;margin:0 0 22px;font-size:14px;opacity:.85"></ul><a class="btn" href="#book" data-i="b1"></a></div></section>
+<section id="menu"><h2 class="gold" data-i="mn_t"></h2><p class="lead" data-i="mn_p"></p><div class="tabs" id="tb"></div><div class="grid" id="mg"></div></section>
+
+<section id="products"><h2 class="gold" id="pg_t"></h2><div id="pg"></div></section>
+<section id="about"><h2 class="gold" data-i="ab_t"></h2><p class="lead" data-i="ab_p"></p>
+<div class="grid"><div class="card tilt rv"><svg class="i" style="width:48px;height:44px"><use href="#glass"/></svg><h3>Craft</h3></div>
+<div class="card tilt rv"><svg class="i" style="width:48px;height:44px"><use href="#crown"/></svg><h3>Bartenders</h3></div>
+<div class="card tilt rv"><svg class="i" style="width:48px;height:44px"><use href="#note"/></svg><h3>Vibe</h3></div></div></section>
+
+<section id="music"><h2 class="gold" data-i="mu_t"></h2><p class="lead" data-i="mu_p"></p>
+<div class="grid"><div class="card tilt rv"><div class="e">🔥</div><h3 data-i="g1"></h3><div class="eq"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+<div class="card tilt rv"><div class="e">🌹</div><h3 data-i="g2"></h3><div class="eq"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+<div class="card tilt rv"><div class="e">🥁</div><h3 data-i="g3"></h3><div class="eq"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+<div class="card tilt rv"><div class="e">🎧</div><h3 data-i="g4"></h3><div class="eq"><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></section>
+
+<section id="tables"><h2 class="gold" data-i="tb_t"></h2><p class="lead" data-i="tb_p"></p>
+<div class="grid"><div class="card tilt rv"><div class="e">🍾</div><h3 data-i="tb1"></h3></div><div class="card tilt rv"><div class="e">👑</div><h3 data-i="tb2"></h3></div><div class="card tilt rv"><div class="e">🍸</div><h3 data-i="tb3"></h3></div></div>
+<p style="text-align:center;margin-top:28px"><a class="btn" href="#book" data-i="b1"></a></p></section>
+
+<section id="clients"><h2 class="gold" data-i="cl_t"></h2><p class="lead" data-i="cl_p"></p>
+<div class="grid"><div class="card tilt rv"><div class="e">🌍</div><h3 data-i="c1"></h3></div><div class="card tilt rv"><div class="e">🎓</div><h3 data-i="c2"></h3></div><div class="card tilt rv"><div class="e">🎂</div><h3 data-i="c3"></h3></div></div></section>
+
+<section id="reviews"><h2 class="gold" data-i="rv_t"></h2><a id="gr" href="https://maps.app.goo.gl/BDibZx5npvAoAY7r8" target="_blank" rel="noopener" style="display:block;text-align:center;margin:10px auto 0;color:var(--g);text-decoration:none;font:600 24px 'Cormorant Garamond',Georgia,serif"></a><div class="grid" id="rg" style="margin-top:30px"></div></section>
+
+<section id="book"><h2 class="gold" data-i="bk_t"></h2><p class="lead" data-i="bk_p"></p>
+<form class="card" id="f">
+<div><label for="fn" data-i="f1"></label><input id="fn" required autocomplete="name"></div>
+<div><label for="ft" data-i="f2"></label><input id="ft" type="tel" required autocomplete="tel"></div>
+<div><label for="fd" data-i="f3"></label><input id="fd" type="date" required></div>
+<div><label for="fp" data-i="f4"></label><input id="fp" type="number" min="1" max="200" value="4" required></div>
+<div class="w"><label for="fy" data-i="f5"></label><select id="fy"><option value="4" id="o5"></option><option value="0" data-i="o1"></option><option value="1" data-i="o2"></option><option value="2" data-i="o3"></option><option value="3" data-i="o4"></option><option value="5" id="o6"></option></select></div>
+<div class="w"><label for="fo" data-i="f6"></label><textarea id="fo" rows="3"></textarea></div>
+<div class="w nop" data-i="nopay"></div>
+<div class="w" style="text-align:center"><button class="btn" type="submit" data-i="send"></button><p id="ok"></p></div>
+</form></section>
+
+<footer>
+<svg class="i" style="width:50px;height:46px"><use href="#crown"/></svg>
+<div class="s gold" style="font-size:46px">Enbabia</div>
+<p data-i="ft"></p>
+<div class="soc">
+<a href="https://www.instagram.com/enbabialibrary?utm_source=ig_web_button_share_sheet&amp;cplk=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i" style="width:24px;height:24px"><use href="#ig"/></svg></a>
+
+
+<a id="wa" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="i" style="width:24px;height:24px"><use href="#wa"/></svg></a>
+<a href="https://maps.app.goo.gl/BDibZx5npvAoAY7r8" target="_blank" rel="noopener" aria-label="Maps"><svg class="i" style="width:24px;height:24px"><use href="#mp"/></svg></a></div>
+<a class="btn o" href="https://maps.app.goo.gl/BDibZx5npvAoAY7r8" target="_blank" rel="noopener" data-i="map"></a>
+</footer>
+<div style="text-align:center;padding:0 0 100px"><button id="adb" class="btn o" type="button">Admin</button></div>
+
+<script>
+const CFG=JSON.parse(document.getElementById("cfg").textContent||"{}");try{const z=JSON.parse(localStorage.getItem("enb-cfg")||"null");if(z&&(z.ts||0)>(CFG.ts||0))Object.assign(CFG,z)}catch(e){}const NUM=CFG.wa||"34600000000"; /* ← tu número de WhatsApp con prefijo, sin + */
+const LI=["es","en","fr","it","ar"];
+const W={rum:["ron","rum","rhum","rum","روم"],vodka:["vodka","vodka","vodka","vodka","فودكا"],gin:["ginebra","gin","gin","gin","جين"],tequila:["tequila","tequila","tequila","tequila","تيكيلا"],whisky:["whisky","whisky","whisky","whisky","ويسكي"],mint:["menta","mint","menthe","menta","نعناع"],lime:["lima","lime","citron vert","lime","ليمون أخضر"],lemon:["limón","lemon","citron","limone","ليمون"],cran:["arándano","cranberry","cranberry","mirtillo rosso","توت بري"],vermut:["vermut","vermouth","vermouth","vermut","فيرموث"],pine:["piña","pineapple","ananas","ananas","أناناس"],coco:["coco","coconut","coco","cocco","جوز الهند"],sugar:["azúcar","sugar","sucre","zucchero","سكر"],ice:["hielo","ice","glace","ghiaccio","ثلج"],soda:["soda","soda","soda","soda","صودا"],tonic:["tónica","tonic","tonic","tonica","تونيك"],cola:["cola","cola","cola","cola","كولا"],coffee:["café","coffee","café","caffè","قهوة"],orange:["naranja","orange","orange","arancia","برتقال"],peach:["melocotón","peach","pêche","pesca","خوخ"],strawberry:["fresa","strawberry","fraise","fragola","فراولة"],beer:["cerveza","beer","bière","birra","بيرة"],wine:["vino","wine","vin","vino","نبيذ"],cava:["cava","sparkling wine","mousseux","spumante","نبيذ فوار"],water:["agua","water","eau","acqua","ماء"],soft:["refresco","soft drink","soda","bibita","مشروب غازي"],shot:["chupito","shot","shot","shot","شوت"],bottle:["botella","bottle","bouteille","bottiglia","زجاجة"],glass:["copa de","glass of","verre de","calice di","كأس"],juice:["zumo","juice","jus","succo","عصير"],lemonade:["limonada","lemonade","limonade","limonata","ليموناد"],
+c_c:["Cócteles","Cocktails","Cocktails","Cocktail","كوكتيلات"],c_n:["Sin alcohol","Alcohol-free","Sans alcool","Analcolici","بدون كحول"],c_s:["Chupitos","Shots","Shots","Shot","شوتس"],c_l:["Copas","Mixed drinks","Long drinks","Long drink","مشروبات"],c_b:["Cerveza y vino","Beer & wine","Bière et vin","Birra e vino","بيرة ونبيذ"],c_t:["Botellas","Bottles","Bouteilles","Bottiglie","زجاجات"]};
+const M=[["Mojito",14,"c",["rum","mint","lime","sugar","soda"]],["Cosmopolitan",14,"c",["vodka","cran","lime"]],["Negroni",14,"c",["gin","Campari","vermut"]],["Margarita",14,"c",["tequila","Triple sec","lime"]],["Piña Colada",14,"c",["rum","pine","coco"]],["Caipirinha",14,"c",["Cachaça","lime","sugar"]],["Daiquiri",14,"c",["rum","lime","sugar"]],["Old Fashioned",14,"c",["whisky","Angostura","sugar"]],["Aperol Spritz",14,"c",["Aperol","Prosecco","soda"]],["Moscow Mule",14,"c",["vodka","Ginger beer","lime"]],["Espresso Martini",14,"c",["vodka","coffee","Kahlúa"]],["Sex on the Beach",14,"c",["vodka","peach","orange","cran"]],
+["Virgin Mojito",6,"n",["mint","lime","sugar","soda"]],["Virgin Colada",6,"n",["pine","coco"]],[["lemonade","strawberry"],5,"n",["lemon","strawberry","ice"]],["juice",3,"n",["orange"]],["soft",3,"n"],["water",2,"n"],
+[["shot","tequila"],4,"s"],[["shot","vodka"],4,"s"],[["shot","rum"],4,"s"],[["shot","Jägermeister"],4,"s"],
+[["rum","cola"],8,"l"],[["vodka","orange"],8,"l"],[["gin","tonic"],9,"l"],[["whisky","cola"],9,"l"],
+["beer",3,"b"],[["glass","wine"],4,"b"],[["glass","cava"],5,"b"],
+[["bottle","vodka"],90,"t"],[["bottle","rum"],90,"t"],[["bottle","gin"],95,"t"],[["bottle","tequila"],100,"t"],[["bottle","whisky"],110,"t"]];
+if(CFG.menu&&CFG.menu.length)M.splice(0,M.length,...CFG.menu);
+const sr=g=>g.u||'/_blob/'+g.id;
+function gr(){const g=CFG.gal||[];document.getElementById("gallery").style.display=g.length?"":"none";document.getElementById("gal_t").textContent={es:"Galería",en:"Gallery",fr:"Galerie",it:"Galleria",ar:"المعرض"}[L];document.getElementById("gal").innerHTML=g.map(x=>`<div class="card tilt" style="padding:0;overflow:hidden;flex:0 0 min(88%,620px);scroll-snap-align:center">${x.t=="v"?`<video src="${sr(x)}" controls playsinline preload="metadata" style="width:100%;display:block;aspect-ratio:4/3;object-fit:cover"></video>`:`<img src="${sr(x)}" alt="" loading="lazy" style="width:100%;display:block;aspect-ratio:4/3;object-fit:cover">`}</div>`).join("")}
+const PH=['https://i.imgur.com/yxdlm3p.jpeg','https://i.imgur.com/1QfRNbD.png','https://i.imgur.com/Vs7mkIJ.png','https://i.imgur.com/fd7jbPu.png','https://i.imgur.com/ajdjnbU.png','https://i.imgur.com/5kJdprZ.png','https://i.imgur.com/uwYPG9I.png','https://i.imgur.com/Zw3IcYK.jpeg','https://i.imgur.com/o83TeLe.jpeg','https://i.imgur.com/I0D28r0.png','https://i.imgur.com/Vbj0uGh.jpeg','https://i.imgur.com/SI5l6ry.png','https://i.imgur.com/zl102Z6.jpeg','https://i.imgur.com/dHWS0tx.jpeg','https://i.imgur.com/vIYf2go.png'];
+let PI=0;const lb=document.createElement('div'),bs='position:absolute;background:rgba(0,0,0,.65);color:#d4af37;border:1px solid #d4af37;width:48px;height:48px;border-radius:50%;font-size:22px;cursor:pointer;';
+lb.id='lb';lb.style.cssText='position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center';
+lb.innerHTML='<img id="lbi" alt="" style="max-width:94vw;max-height:84vh;object-fit:contain;border:1px solid #d4af3766;box-shadow:0 0 60px #d4af3733"><button data-a="x" aria-label="Close" style="'+bs+'top:calc(14px + env(safe-area-inset-top,0px));right:14px">✕</button><button data-a="p" aria-label="Previous" style="'+bs+'left:10px;top:50%;margin-top:-24px">‹</button><button data-a="n" aria-label="Next" style="'+bs+'right:10px;top:50%;margin-top:-24px">›</button><div id="lbn" style="position:absolute;bottom:calc(18px + env(safe-area-inset-bottom,0px));color:#d4af37;letter-spacing:.2em"></div>';
+document.body.append(lb);
+const sh=i=>{PI=(i+PH.length)%PH.length;document.getElementById('lbi').src=PH[PI];document.getElementById('lbn').textContent=(PI+1)+' / '+PH.length;lb.style.display='flex'};
+lb.onclick=e=>{const a=e.target.dataset.a;if(a=='p')sh(PI-1);else if(a=='n')sh(PI+1);else if(a=='x'||e.target===lb)lb.style.display='none'};
+document.addEventListener('keydown',e=>{if(lb.style.display!='flex')return;if(e.key=='Escape')lb.style.display='none';if(e.key=='ArrowLeft')sh(PI-1);if(e.key=='ArrowRight')sh(PI+1)});
+let tx=0;lb.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});lb.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)sh(PI+(d<0?1:-1))});
+document.getElementById('pg').innerHTML=PH.map((u,i)=>`<div class="pi rv" data-p="${i}" style="transition-delay:${(i%6)*.08}s"><img src="${u}" alt="" decoding="async" onerror="this.parentNode.style.display='none';window.pe=(window.pe||0)+1;if(window.pe>=${PH.length})document.getElementById('products').style.display='none'"></div>`).join('');
+document.getElementById('pg').onclick=e=>{const c=e.target.closest('.pi');if(c)sh(+c.dataset.p)};
+let CAT="c";
+const CI={c:"",n:"",s:"",l:"",b:"",t:""};
+const w=k=>W[k]?W[k][LI.indexOf(L)]:k;
+const nm=n=>Array.isArray(n)?n.map(w).join(" "):w(n);
+function rm(){document.getElementById("tb").innerHTML=Object.keys(CI).map(k=>`<button class="${k==CAT?"on":""}" data-c="${k}">${CI[k]} ${w("c_"+k)}</button>`).join("");
+document.getElementById("mg").innerHTML=M.map((m,i)=>m[2]==CAT?`<div class="card tilt"><div class="e">${CI[CAT]}</div><h3>${nm(m[0])}</h3><p>${(m[3]||[]).map(w).join(", ")}</p><div class="pr">${m[1]} €</div><button class="btn ob" data-n="${i}">${T[L].ord}</button></div>`:"").join("")}
+const IC=["🍹","🍸","🥃","🍹","🥥","🍋"];
+const D={es:["Ron, menta, lima y hielo","Vodka, arándano y lima","Ginebra, Campari y vermut","Tequila, lima y sal","Ron, piña y coco","Cachaça, lima y azúcar"],
+en:["Rum, mint, lime & ice","Vodka, cranberry & lime","Gin, Campari & vermouth","Tequila, lime & salt","Rum, pineapple & coconut","Cachaça, lime & sugar"],
+fr:["Rhum, menthe, citron vert","Vodka, cranberry, citron vert","Gin, Campari, vermouth","Tequila, citron vert, sel","Rhum, ananas, coco","Cachaça, citron vert, sucre"],
+it:["Rum, menta, lime e ghiaccio","Vodka, mirtillo rosso e lime","Gin, Campari e vermut","Tequila, lime e sale","Rum, ananas e cocco","Cachaça, lime e zucchero"],
+ar:["روم، نعناع، ليمون أخضر وثلج","فودكا، توت بري وليمون أخضر","جين، كامباري وفيرموث","تيكيلا، ليمون أخضر وملح","روم، أناناس وجوز الهند","كاشاسا، ليمون أخضر وسكر"]};
+const R=[["Sophie 🇫🇷","Des cocktails incroyables et une ambiance unique !"],["Marco 🇮🇹","Musica fantastica e barman bravissimi."],["James 🇬🇧","Best cocktails of our trip. Amazing staff!"],["Lucía 🇪🇸","El mejor sitio para celebrar un cumpleaños."]];
+const T={
+es:{n1:"Inicio",n2:"Carta",n3:"Quiénes somos",n4:"Música",n5:"Mesas",n6:"Clientes",n7:"Reseñas",n8:"Reservas",tag:"Buenos cócteles<br>Mejores momentos",b1:"Reservar",b2:"Ver carta",ab_t:"Quiénes somos",ab_p:"Somos un cóctel bar de coctelería artesanal, hecha por cocteleros muy profesionales con muchos años de experiencia. Sabores únicos, buena música y un ambiente especial para que cada noche sea inolvidable.",mn_t:"Nuestra carta",mn_p:"Cócteles artesanales con sabores únicos. Toca y pide por WhatsApp con el precio.",ord:"Pedir por WhatsApp",mu_t:"La música",mu_p:"Cada noche suena lo que te hace bailar.",g1:"Reguetón",g2:"Bachata",g3:"Merengue",g4:"Música comercial",tb_t:"Mesas de botella especiales",tb_p:"Vive la noche en grande con tu grupo: mesa reservada, botella y servicio exclusivo.",tb1:"Botella premium",tb2:"Zona reservada",tb3:"Servicio de coctelero",cl_t:"Nuestros clientes",cl_p:"Aquí se mezcla el mundo entero.",c1:"Turistas de todo el mundo",c2:"Universitarios",c3:"Grupos y celebraciones",rv_t:"Reseñas",bk_t:"Reservas y eventos",bk_p:"Cumpleaños, grupos y eventos privados. Sin pagar nada por adelantado.",f1:"Nombre",f2:"Teléfono",f3:"Fecha",f4:"Personas",f5:"Tipo",f6:"Notas (opcional)",o1:"Reserva de mesa",o2:"Cumpleaños",o3:"Evento privado",o4:"Mesa de botella",send:"Enviar por WhatsApp",nopay:"✔ Sin pago adelantado",wa:"Hola Enbabia, quiero pedir",wb:"Hola Enbabia, quiero reservar",ok:"¡Gracias! Abrimos WhatsApp para confirmar.",ft:"Tu punto de encuentro",map:"Cómo llegar"},
+en:{n1:"Home",n2:"Menu",n3:"About us",n4:"Music",n5:"Tables",n6:"Guests",n7:"Reviews",n8:"Book",tag:"Good cocktails<br>Better moments",b1:"Book now",b2:"See menu",ab_t:"About us",ab_p:"A cocktail bar serving craft cocktails made by highly professional bartenders with many years of experience. Unique flavours, great music and a special atmosphere to make every night unforgettable.",mn_t:"Our menu",mn_p:"Craft cocktails with unique flavours. Tap and order on WhatsApp with the price.",ord:"Order on WhatsApp",mu_t:"The music",mu_p:"Every night, the sound that makes you dance.",g1:"Reggaeton",g2:"Bachata",g3:"Merengue",g4:"Commercial music",tb_t:"Special bottle tables",tb_p:"Enjoy the night with your group: reserved table, bottle and exclusive service.",tb1:"Premium bottle",tb2:"Reserved area",tb3:"Bartender service",cl_t:"Our guests",cl_p:"The whole world meets here.",c1:"Tourists from all over the world",c2:"University students",c3:"Groups and celebrations",rv_t:"Reviews",bk_t:"Bookings and events",bk_p:"Birthdays, groups and private events. Nothing to pay in advance.",f1:"Name",f2:"Phone",f3:"Date",f4:"Guests",f5:"Type",f6:"Notes (optional)",o1:"Table booking",o2:"Birthday",o3:"Private event",o4:"Bottle table",send:"Send on WhatsApp",nopay:"✔ No advance payment",wa:"Hi Enbabia, I’d like to order",wb:"Hi Enbabia, I’d like to book",ok:"Thank you! Opening WhatsApp to confirm.",ft:"Your meeting point",map:"Get directions"},
+fr:{n1:"Accueil",n2:"Carte",n3:"Qui sommes-nous",n4:"Musique",n5:"Tables",n6:"Clients",n7:"Avis",n8:"Réserver",tag:"Bons cocktails<br>Meilleurs moments",b1:"Réserver",b2:"Voir la carte",ab_t:"Qui sommes-nous",ab_p:"Un cocktail bar de cocktails artisanaux, préparés par des barmen très professionnels avec de nombreuses années d’expérience. Saveurs uniques, bonne musique et ambiance spéciale.",mn_t:"Notre carte",mn_p:"Cocktails artisanaux aux saveurs uniques. Commandez sur WhatsApp avec le prix.",ord:"Commander sur WhatsApp",mu_t:"La musique",mu_p:"Chaque soir, la musique qui vous fait danser.",g1:"Reggaeton",g2:"Bachata",g3:"Merengue",g4:"Musique commerciale",tb_t:"Tables bouteille spéciales",tb_p:"Vivez la soirée en grand avec votre groupe : table réservée, bouteille et service exclusif.",tb1:"Bouteille premium",tb2:"Zone réservée",tb3:"Service barman",cl_t:"Nos clients",cl_p:"Ici, le monde entier se retrouve.",c1:"Touristes du monde entier",c2:"Étudiants",c3:"Groupes et fêtes",rv_t:"Avis",bk_t:"Réservations et événements",bk_p:"Anniversaires, groupes et événements privés. Aucun paiement à l’avance.",f1:"Nom",f2:"Téléphone",f3:"Date",f4:"Personnes",f5:"Type",f6:"Notes (facultatif)",o1:"Table",o2:"Anniversaire",o3:"Événement privé",o4:"Table bouteille",send:"Envoyer sur WhatsApp",nopay:"✔ Sans paiement à l’avance",wa:"Bonjour Enbabia, je souhaite commander",wb:"Bonjour Enbabia, je souhaite réserver",ok:"Merci ! WhatsApp s’ouvre pour confirmer.",ft:"Votre point de rencontre",map:"Itinéraire"},
+it:{n1:"Home",n2:"Menu",n3:"Chi siamo",n4:"Musica",n5:"Tavoli",n6:"Clienti",n7:"Recensioni",n8:"Prenota",tag:"Buoni cocktail<br>Momenti migliori",b1:"Prenota",b2:"Vedi il menu",ab_t:"Chi siamo",ab_p:"Un cocktail bar con cocktail artigianali, preparati da barman molto professionali con tanti anni di esperienza. Sapori unici, buona musica e un’atmosfera speciale.",mn_t:"Il nostro menu",mn_p:"Cocktail artigianali dai sapori unici. Ordina su WhatsApp con il prezzo.",ord:"Ordina su WhatsApp",mu_t:"La musica",mu_p:"Ogni sera la musica che ti fa ballare.",g1:"Reggaeton",g2:"Bachata",g3:"Merengue",g4:"Musica commerciale",tb_t:"Tavoli bottiglia speciali",tb_p:"Vivi la serata in grande con il tuo gruppo: tavolo riservato, bottiglia e servizio esclusivo.",tb1:"Bottiglia premium",tb2:"Zona riservata",tb3:"Servizio barman",cl_t:"I nostri clienti",cl_p:"Qui si incontra il mondo intero.",c1:"Turisti da tutto il mondo",c2:"Universitari",c3:"Gruppi e feste",rv_t:"Recensioni",bk_t:"Prenotazioni ed eventi",bk_p:"Compleanni, gruppi ed eventi privati. Nessun pagamento anticipato.",f1:"Nome",f2:"Telefono",f3:"Data",f4:"Persone",f5:"Tipo",f6:"Note (facoltativo)",o1:"Tavolo",o2:"Compleanno",o3:"Evento privato",o4:"Tavolo bottiglia",send:"Invia su WhatsApp",nopay:"✔ Nessun pagamento anticipato",wa:"Ciao Enbabia, vorrei ordinare",wb:"Ciao Enbabia, vorrei prenotare",ok:"Grazie! Apriamo WhatsApp per confermare.",ft:"Il tuo punto d’incontro",map:"Come arrivare"},
+ar:{n1:"الرئيسية",n2:"القائمة",n3:"من نحن",n4:"الموسيقى",n5:"الطاولات",n6:"زبائننا",n7:"التقييمات",n8:"احجز",tag:"كوكتيلات رائعة<br>أجمل اللحظات",b1:"احجز الآن",b2:"شاهد القائمة",ab_t:"من نحن",ab_p:"بار كوكتيلات حرفية يصنعها محترفون يتمتعون بخبرة سنوات طويلة. نكهات فريدة وموسيقى رائعة وأجواء مميزة لتكون كل ليلة لا تُنسى.",mn_t:"قائمتنا",mn_p:"كوكتيلات حرفية بنكهات فريدة. اطلب عبر واتساب مع السعر.",ord:"اطلب عبر واتساب",mu_t:"الموسيقى",mu_p:"كل ليلة موسيقى تجعلك ترقص.",g1:"ريغيتون",g2:"باتشاتا",g3:"ميرنغي",g4:"موسيقى تجارية",tb_t:"طاولات الزجاجات الخاصة",tb_p:"عش الليلة مع مجموعتك: طاولة محجوزة وزجاجة وخدمة حصرية.",tb1:"زجاجة فاخرة",tb2:"منطقة محجوزة",tb3:"خدمة باريستا الكوكتيل",cl_t:"زبائننا",cl_p:"هنا يلتقي العالم كله.",c1:"سياح من كل العالم",c2:"طلاب الجامعات",c3:"مجموعات واحتفالات",rv_t:"التقييمات",bk_t:"الحجوزات والفعاليات",bk_p:"أعياد ميلاد ومجموعات وفعاليات خاصة. بدون أي دفع مسبق.",f1:"الاسم",f2:"الهاتف",f3:"التاريخ",f4:"عدد الأشخاص",f5:"النوع",f6:"ملاحظات (اختياري)",o1:"حجز طاولة",o2:"عيد ميلاد",o3:"فعالية خاصة",o4:"طاولة زجاجات",send:"أرسل عبر واتساب",nopay:"✔ بدون دفع مسبق",wa:"مرحبا Enbabia، أريد أن أطلب",wb:"مرحبا Enbabia، أريد الحجز",ok:"شكرا! سنفتح واتساب للتأكيد.",ft:"نقطة لقائك",map:"الاتجاهات"}};
+const E={es:["Entrada con consumición","Tu entrada incluye 1 consumición + 2 chupitos gratis"],en:["Entry with a drink","Your ticket includes 1 drink + 2 free shots"],fr:["Entrée avec consommation","Votre entrée comprend 1 consommation + 2 shots offerts"],it:["Ingresso con consumazione","Il tuo ingresso include 1 consumazione + 2 shot gratis"],ar:["دخول مع مشروب","تذكرتك تشمل مشروبا واحدا + شوتان مجانا"]};
+const F={es:["12 € – 18 € · IVA incluido",["Reserva sujeta a disponibilidad y aforo","Solo confirmamos reservas realizadas antes de las 20:00","No válida para Halloween, Nochevieja ni partidos de Champions"]],en:["€12 – €18 · VAT included",["Booking subject to availability and capacity","We only confirm bookings made before 20:00","Not valid on Halloween, New Year’s Eve or Champions League match nights"]],fr:["12 € – 18 € · TVA incluse",["Réservation soumise à disponibilité et capacité","Nous ne confirmons que les réservations faites avant 20 h 00","Non valable pour Halloween, le Nouvel An ni les soirs de match de Ligue des champions"]],it:["12 € – 18 € · IVA inclusa",["Prenotazione soggetta a disponibilità e capienza","Confermiamo solo le prenotazioni effettuate prima delle 20:00","Non valido per Halloween, Capodanno né nelle serate di Champions"]],ar:["12 – 18 يورو · شامل ضريبة القيمة المضافة",["الحجز حسب التوفر والسعة","نؤكد فقط الحجوزات قبل الساعة 20:00","غير صالح في الهالوين ورأس السنة ومباريات دوري الأبطال"]]};
+const O={es:["Ticket normal (1 consumición + 2 chupitos)","Cena de empresa"],en:["Standard ticket (1 drink + 2 shots)","Company dinner"],fr:["Ticket normal (1 consommation + 2 shots)","Dîner d’entreprise"],it:["Ticket normale (1 consumazione + 2 shot)","Cena aziendale"],ar:["تذكرة عادية (مشروب واحد + شوتان)","عشاء شركات"]};
+let L="es";
+const $=s=>document.querySelectorAll(s);
+const wa=t=>"https://wa.me/"+NUM+"?text="+encodeURIComponent(t);
+function setL(l){L=l;const t=T[l];document.documentElement.lang=l;document.documentElement.dir=l=="ar"?"rtl":"ltr";
+$("[data-i]").forEach(e=>e.innerHTML=t[e.dataset.i]);
+rm();
+const nf=(x,d)=>new Intl.NumberFormat(l,{minimumFractionDigits:d}).format(x);document.getElementById("gr").textContent=`${nf(4.5,1)} ★★★★½ · ${nf(2832,0)} ${t.rv_t} · Google`;
+if(window.aiUI)aiUI();gr();document.getElementById('pg_t').textContent={es:'Nuestros productos',en:'Our products',fr:'Nos produits',it:'I nostri prodotti',ar:'منتجاتنا'}[l];{const e=E[l];document.getElementById("en_t").textContent=e[0];document.getElementById("en_p").textContent=e[1];const f=F[l],o=O[l];document.getElementById("o5").textContent=o[0];document.getElementById("o6").textContent=o[1];document.getElementById("en_pr").textContent=CFG.pr||f[0];document.getElementById("en_c").innerHTML=f[1].map(x=>"<li>"+x+"</li>").join("")}
+$("#lg button").forEach(b=>b.classList.toggle("on",b.dataset.l==l));
+document.getElementById("wa").href=wa(t.wb);document.getElementById("wa2").href=wa(t.wb);
+try{localStorage.setItem("enb-l",l)}catch(e){}}
+document.getElementById("tb").onclick=e=>{const b=e.target.closest("button");if(b){CAT=b.dataset.c;rm()}};
+document.getElementById("rg").innerHTML=R.map(r=>`<div class="card tilt rev rv"><div class="st">★★★★★</div><p>“${r[1]}”</p><h3>${r[0]}</h3></div>`).join("");
+document.getElementById("mg").addEventListener("click",e=>{const b=e.target.closest(".ob");if(!b)return;const m=M[b.dataset.n];window.open(wa(T[L].wa+" "+nm(m[0])+" ("+m[1]+" €)"),"_blank")});
+$("#lg button").forEach(b=>b.onclick=()=>setL(b.dataset.l));
+const nav=document.getElementById("nav");
+document.getElementById("bg").onclick=()=>nav.classList.toggle("open");
+$("nav a").forEach(a=>a.onclick=()=>nav.classList.remove("open"));
+const fd=document.getElementById("fd");fd.min=new Date().toISOString().slice(0,10);
+document.getElementById("f").onsubmit=e=>{e.preventDefault();const t=T[L],g=id=>document.getElementById(id).value;
+const ty=document.getElementById("fy").selectedOptions[0].textContent;
+const msg=`${t.wb}\n${t.f1}: ${g("fn")}\n${t.f2}: ${g("ft")}\n${t.f3}: ${g("fd")}\n${t.f4}: ${g("fp")}\n${t.f5}: ${ty}\n${g("fo")}`;
+const ok=document.getElementById("ok");ok.textContent=t.ok;ok.style.display="block";window.open(wa(msg),"_blank")};
+document.addEventListener("pointermove",e=>{const c=e.target.closest&&e.target.closest(".tilt");
+$(".tilt.act").forEach(x=>{if(x!==c){x.style.transform="";x.classList.remove("act")}});
+if(c){const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(700px) rotateY(${x*16}deg) rotateX(${-y*16}deg) translateZ(10px)`;c.classList.add("act")}
+$(".fl").forEach((f,i)=>f.style.translate=`${(e.clientX/innerWidth-.5)*(14+i*8)}px ${(e.clientY/innerHeight-.5)*(14+i*8)}px`)});
+if("IntersectionObserver"in window){const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.15});$(".rv").forEach(e=>io.observe(e))}else $(".rv").forEach(e=>e.classList.add("in"));
+(function(){
+const AI_URL='';/* opcional: URL de tu servidor con IA real (recibe {q,lang,history}, devuelve {reply}) */
+const C={es:{t:'Asistente Enbabia',ph:'Escribe tu pregunta…',wa:'Hablar por WhatsApp',ch:['Entrada','Carta y precios','Reservar','Música','¿Dónde estáis?'],gw:'Hola Enbabia, tengo una pregunta:'},en:{t:'Enbabia Assistant',ph:'Type your question…',wa:'Chat on WhatsApp',ch:['Ticket','Menu','Book','Music','Where are you?'],gw:'Hi Enbabia, I have a question:'},fr:{t:'Assistant Enbabia',ph:'Écrivez votre question…',wa:'Écrire sur WhatsApp',ch:['Entrée','Carte','Réserver','Musique','Où êtes-vous ?'],gw:'Bonjour Enbabia, j’ai une question :'},it:{t:'Assistente Enbabia',ph:'Scrivi la tua domanda…',wa:'Scrivi su WhatsApp',ch:['Ingresso','Menu','Prenota','Musica','Dove siete?'],gw:'Ciao Enbabia, ho una domanda:'},ar:{t:'مساعد Enbabia',ph:'اكتب سؤالك…',wa:'تحدث عبر واتساب',ch:['دخول','القائمة','حجز','موسيقى','أين أنتم؟'],gw:'مرحبا Enbabia، لدي سؤال:'}};
+const MP='https://maps.app.goo.gl/BDibZx5npvAoAY7r8';
+const A={
+es:{hi:'¡Hola! Soy el asistente de Enbabia. Pregúntame por entradas, carta, reservas, música o ubicación.',pr:'{n}: {p} €. ¿Quieres pedirlo por WhatsApp?',thanks:'¡A ti! Si quieres, también te atendemos por WhatsApp.',entry:'La entrada incluye 1 consumición + 2 chupitos gratis. Precio: {P}. Solo confirmamos reservas hechas antes de las 20:00; no válida en Halloween, Nochevieja ni partidos de Champions.',vip:'Tenemos mesas de botella especiales: mesa reservada, botella y servicio de coctelero. Pídela en el formulario de Reservas (tipo "Mesa de botella") o por WhatsApp. Los precios están en la carta, pestaña Botellas.',book:'Puedes reservar en el formulario de Reservas (sin pagar nada por adelantado) o por WhatsApp. Dinos la fecha y cuántas personas sois.',event:'Organizamos cumpleaños, cenas de empresa y eventos privados, sin pago adelantado. Usa el formulario de Reservas o escríbenos por WhatsApp.',music:'Suena reguetón, bachata, merengue y música comercial para bailar toda la noche.',hours:'El horario exacto te lo confirma el equipo. Escríbenos por WhatsApp y te respondemos.',where:'Aquí tienes cómo llegar: '+MP,menu:'Los cócteles cuestan {C} €. También tenemos sin alcohol, chupitos, copas, cerveza, vino y botellas. Mira la carta completa en la web y pide por WhatsApp con el precio. Puedes preguntarme el precio de cualquier producto.',about:'Somos un cóctel bar de coctelería artesanal, con cocteleros muy profesionales, buena música y un ambiente único. Recibimos turistas de todo el mundo y universitarios.',fb:'Esa pregunta mejor te la responde el equipo. Pulsa el botón de WhatsApp y les envío tu consulta.'},
+en:{hi:'Hi! I’m the Enbabia assistant. Ask me about tickets, the menu, bookings, music or location.',pr:'{n}: €{p}. Would you like to order it on WhatsApp?',thanks:'You’re welcome! You can also chat with us on WhatsApp.',entry:'Your ticket includes 1 drink + 2 free shots. Price: {P}. We only confirm bookings made before 20:00; not valid on Halloween, New Year’s Eve or Champions League nights.',vip:'We offer special bottle tables: reserved table, bottle and bartender service. Request one in the Bookings form (type "Bottle table") or on WhatsApp. Prices are in the menu, Bottles tab.',book:'You can book in the Bookings form (nothing to pay in advance) or on WhatsApp. Tell us the date and number of guests.',event:'We host birthdays, company dinners and private events, with no advance payment. Use the Bookings form or message us on WhatsApp.',music:'We play reggaeton, bachata, merengue and commercial music, to dance all night.',hours:'The team will confirm the exact hours. Message us on WhatsApp and we’ll reply.',where:'Here’s how to get there: '+MP,menu:'Cocktails are €{C}. We also have alcohol-free drinks, shots, mixed drinks, beer, wine and bottles. See the full menu on the page and order on WhatsApp with the price. You can ask me the price of any item.',about:'We are a craft cocktail bar with highly professional bartenders, great music and a unique atmosphere. We welcome tourists from all over the world and university students.',fb:'The team can answer that better. Tap the WhatsApp button and I’ll send them your question.'},
+fr:{hi:'Bonjour ! Je suis l’assistant d’Enbabia. Posez-moi vos questions sur les entrées, la carte, les réservations, la musique ou l’adresse.',pr:'{n} : {p} €. Voulez-vous le commander sur WhatsApp ?',thanks:'Avec plaisir ! Vous pouvez aussi nous écrire sur WhatsApp.',entry:'L’entrée comprend 1 consommation + 2 shots offerts. Prix : {P}. Nous ne confirmons que les réservations faites avant 20 h 00 ; non valable pour Halloween, le Nouvel An ni les soirs de Ligue des champions.',vip:'Nous proposons des tables bouteille spéciales : table réservée, bouteille et service barman. Demandez-la dans le formulaire (type « Table bouteille ») ou sur WhatsApp. Les prix sont dans la carte, onglet Bouteilles.',book:'Vous pouvez réserver avec le formulaire (sans paiement à l’avance) ou sur WhatsApp. Indiquez la date et le nombre de personnes.',event:'Nous organisons anniversaires, dîners d’entreprise et événements privés, sans paiement à l’avance. Utilisez le formulaire ou écrivez-nous sur WhatsApp.',music:'Reggaeton, bachata, merengue et musique commerciale pour danser toute la nuit.',hours:'L’équipe vous confirmera les horaires exacts. Écrivez-nous sur WhatsApp.',where:'Voici l’itinéraire : '+MP,menu:'Les cocktails coûtent {C} €. Nous avons aussi des boissons sans alcool, des shots, de la bière, du vin et des bouteilles. Voyez la carte complète sur la page et commandez sur WhatsApp. Demandez-moi le prix de n’importe quel produit.',about:'Un cocktail bar de cocktails artisanaux, avec des barmen très professionnels, bonne musique et ambiance unique. Nous accueillons des touristes du monde entier et des étudiants.',fb:'L’équipe répondra mieux à cette question. Appuyez sur le bouton WhatsApp et je lui envoie votre demande.'},
+it:{hi:'Ciao! Sono l’assistente di Enbabia. Chiedimi di ingressi, menu, prenotazioni, musica o dove siamo.',pr:'{n}: {p} €. Vuoi ordinarlo su WhatsApp?',thanks:'Di nulla! Puoi anche scriverci su WhatsApp.',entry:'L’ingresso include 1 consumazione + 2 shot gratis. Prezzo: {P}. Confermiamo solo le prenotazioni prima delle 20:00; non valido per Halloween, Capodanno né serate di Champions.',vip:'Abbiamo tavoli bottiglia speciali: tavolo riservato, bottiglia e servizio barman. Richiedilo nel modulo (tipo “Tavolo bottiglia”) o su WhatsApp. I prezzi sono nel menu, scheda Bottiglie.',book:'Puoi prenotare con il modulo (senza pagamento anticipato) o su WhatsApp. Indica data e numero di persone.',event:'Organizziamo compleanni, cene aziendali ed eventi privati, senza pagamento anticipato. Usa il modulo o scrivici su WhatsApp.',music:'Reggaeton, bachata, merengue e musica commerciale per ballare tutta la notte.',hours:'Il team ti confermerà gli orari esatti. Scrivici su WhatsApp.',where:'Ecco come arrivare: '+MP,menu:'I cocktail costano {C} €. Abbiamo anche analcolici, shot, long drink, birra, vino e bottiglie. Guarda il menu completo nella pagina e ordina su WhatsApp. Chiedimi il prezzo di qualsiasi prodotto.',about:'Siamo un cocktail bar artigianale con barman molto professionali, buona musica e atmosfera unica. Accogliamo turisti da tutto il mondo e universitari.',fb:'Il team saprà rispondere meglio. Premi il pulsante WhatsApp e invio la tua domanda.'},
+ar:{hi:'مرحبا! أنا مساعد Enbabia. اسألني عن التذاكر والقائمة والحجوزات والموسيقى والموقع.',pr:'{n}: {p} €. هل تريد طلبه عبر واتساب؟',thanks:'عفوا! يمكنك أيضا مراسلتنا عبر واتساب.',entry:'التذكرة تشمل مشروبا واحدا + شوتان مجانا. السعر: {P}. نؤكد فقط الحجوزات قبل الساعة 20:00، وغير صالحة في الهالوين ورأس السنة ومباريات دوري الأبطال.',vip:'لدينا طاولات زجاجات خاصة: طاولة محجوزة وزجاجة وخدمة باريستا. اطلبها من نموذج الحجوزات أو عبر واتساب. الأسعار في القائمة، قسم الزجاجات.',book:'يمكنك الحجز عبر نموذج الحجوزات (بدون دفع مسبق) أو عبر واتساب. أخبرنا بالتاريخ وعدد الأشخاص.',event:'ننظم أعياد الميلاد وعشاء الشركات والفعاليات الخاصة بدون دفع مسبق. استخدم نموذج الحجز أو راسلنا عبر واتساب.',music:'ريغيتون وباتشاتا وميرنغي وموسيقى تجارية لترقص طوال الليل.',hours:'سيؤكد لك الفريق المواعيد بدقة. راسلنا عبر واتساب.',where:'إليك الطريق: '+MP,menu:'الكوكتيلات بسعر {C} €. لدينا أيضا مشروبات بدون كحول وشوتس وبيرة ونبيذ وزجاجات. شاهد القائمة الكاملة في الصفحة واطلب عبر واتساب. اسألني عن سعر أي منتج.',about:'بار كوكتيلات حرفية مع محترفين وموسيقى رائعة وأجواء فريدة. نستقبل سياحا من كل العالم وطلاب الجامعات.',fb:'الفريق يجيب على هذا أفضل. اضغط زر واتساب وأرسل لهم سؤالك.'}};
+const RX=[['thanks',/gracias|thank|merci|grazie|شكرا/i],['entry',/entrada|ticket|entry|entr.e|ingresso|دخول|تذكرة|cover/i],['vip',/botella|bottle|bouteille|bottiglia|زجاجة|vip/i],['book',/reserv|book|r.serv|prenot|حجز|mesa|table|tavolo/i],['event',/cumple|birthday|anniversaire|compleanno|عيد|evento|event|empresa|company|entreprise|azienda|cena|dinner|d.ner|fiesta|party/i],['music',/m.sica|music|musique|musica|موسيقى|reguet|bachata|merengue|dj/i],['hours',/horario|hours|open|abre|abr.s|horaire|orari|aprite|che ora|ساعات|متى|cierr|close/i],['where',/d.nde|donde|where|(^|[^a-z])ou([^a-z]|$)|où|dove|ubicaci|address|direcci|location|llegar|map|أين|عنوان/i],['menu',/carta|menu|carte|c.ctel|cocktail|precio|price|prix|prezzo|سعر|قائمة|beb|drink/i],['about',/qui.n|who|qui sommes|chi siamo|من نحن|about|turista|tourist|student|univers|estudiante/i]];
+const st=document.createElement('style');st.id='aic';
+st.textContent='#aib{position:fixed;inset-inline-start:14px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:70;width:64px;height:64px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;background:linear-gradient(135deg,#8a6a1c,#e8c766 45%,#fff3c0 60%,#d4af37);box-shadow:0 0 26px #d4af3788;animation:bob 4s ease-in-out infinite}#aib svg{width:32px;height:32px;fill:none;stroke:#120d02;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}#aib::after{content:"IA";position:absolute;top:-4px;inset-inline-end:-4px;background:#000;color:#d4af37;border:1px solid #d4af37;border-radius:10px;font:600 10px Montserrat,sans-serif;padding:1px 5px}#aip{position:fixed;inset-inline-start:14px;bottom:calc(92px + env(safe-area-inset-bottom,0px));z-index:70;width:min(380px,calc(100vw - 28px));height:min(540px,70vh);display:none;flex-direction:column;background:#050505;border:1px solid #d4af37;border-radius:10px;box-shadow:0 20px 60px #000,0 0 40px #d4af3733;overflow:hidden;transform-origin:bottom left}#aip.o{display:flex;animation:pop .35s ease-out}@keyframes pop{from{opacity:0;transform:perspective(700px) rotateX(18deg) scale(.9)}}#aip .h{display:flex;align-items:center;gap:10px;padding:12px 14px;background:linear-gradient(135deg,#1a1405,#000);border-bottom:1px solid #d4af3755;color:#d4af37;font:600 22px Cormorant Garamond,Georgia,serif}#aip .h button{margin-inline-start:auto;background:none;border:0;color:#d4af37;font-size:20px;cursor:pointer;min-width:44px;min-height:44px}#aip .ms{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px}#aip .b{max-width:86%;padding:9px 12px;border-radius:12px;font-size:14px;line-height:1.5;white-space:pre-wrap}#aip .bt{align-self:flex-start;background:#120f06;border:1px solid #d4af3755}#aip .u{align-self:flex-end;background:linear-gradient(135deg,#b8862b,#f3d98a);color:#120d02}#aip .t{animation:tp .8s infinite alternate}@keyframes tp{to{opacity:.3}}#aip .ch{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 8px}#aip .ch button{background:none;border:1px solid #d4af3788;color:#d4af37;border-radius:20px;padding:6px 12px;font:12px Montserrat,sans-serif;cursor:pointer}#aip .in{display:flex;gap:6px;padding:8px 12px}#aip .in input{flex:1;padding:10px;font-size:16px}#aip .in .btn{margin:0;padding:0 16px}';
+document.head.append(st);
+const bt=document.createElement('button'),p=document.createElement('div');
+bt.id='aib';bt.setAttribute('aria-label','AI');bt.innerHTML='<svg><use href="#ai"/></svg>';
+p.id='aip';p.innerHTML='<div class="h"><svg class="i" style="width:26px;height:24px"><use href="#crown"/></svg><span id="ait"></span><button id="aix" aria-label="Close">✕</button></div><div class="ms" id="aim"></div><div class="ch" id="aic2"></div><div class="in"><input id="aiq" autocomplete="off"><button class="btn" id="ais" aria-label="Send">➤</button></div><button class="btn" id="aiw" style="margin:0 12px 12px;background:linear-gradient(135deg,#5cf58f,#25d366 45%,#0b9e4f);color:#fff"></button>';
+document.body.append(bt,p);
+const ms=document.getElementById('aim'),inp=document.getElementById('aiq');let busy=false,LQ='',H=[];
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const add=(t,c)=>{const d=document.createElement('div');d.className='b '+c;d.textContent=t;ms.append(d);ms.scrollTop=ms.scrollHeight;return d};
+async function say(t){const d=add('','bt');let i=0;await new Promise(ok=>{const iv=setInterval(()=>{i+=2;d.textContent=t.slice(0,i);ms.scrollTop=ms.scrollHeight;if(i>=t.length){clearInterval(iv);ok()}},16)});d.innerHTML=t.split(' ').map(x=>x.startsWith('http')&&!/["'<>]/.test(x)?'<a href="'+x+'" target="_blank" rel="noopener" style="color:#f0d98a">Maps</a>':esc(x)).join(' ')}
+async function ans(q){const lg=[...q].some(c=>c.charCodeAt(0)>=1536&&c.charCodeAt(0)<=1791)?'ar':L,a=A[lg],ql=q.toLowerCase().trim();
+for(const m of M){const n=nm(m[0]).toLowerCase();if(n.length>3&&ql.includes(n))return a.pr.replace('{n}',nm(m[0])).replace('{p}',m[1])}
+if(ql.length<20&&/^(hola|hello|hi|hey|bonjour|salut|ciao|buenas|مرحبا|أهلا|اهلا)/.test(ql))return a.hi;
+for(const [k,re] of RX)if(re.test(ql))return a[k].replace('{P}',CFG.pr||F[lg][0]).replace('{C}',(M.find(x=>x[2]=='c')||[0,14])[1]);
+if(AI_URL){try{const r=await fetch(AI_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({q,lang:lg,history:H.slice(-8)})});const j=await r.json();if(j.reply)return String(j.reply)}catch(e){}}
+return a.fb}
+async function send(q){q=q.trim();if(!q||busy)return;busy=true;LQ=q;inp.value='';add(q,'u');H.push({r:'u',t:q});const t=add('· · ·','bt t');await new Promise(r=>setTimeout(r,500));const a=await ans(q);t.remove();H.push({r:'b',t:a});await say(a);busy=false}
+window.aiUI=()=>{const c=C[L];document.getElementById('ait').textContent=c.t;inp.placeholder=c.ph;document.getElementById('aiw').textContent=c.wa;document.getElementById('aic2').innerHTML=c.ch.map(x=>'<button>'+x+'</button>').join('');if(!ms.children.length)add(A[L].hi,'bt')};
+bt.onclick=()=>{p.classList.toggle('o');if(p.classList.contains('o'))inp.focus()};
+document.getElementById('aix').onclick=()=>p.classList.remove('o');
+document.getElementById('aic2').onclick=e=>{if(e.target.tagName=='BUTTON')send(e.target.textContent)};
+document.getElementById('ais').onclick=()=>send(inp.value);
+inp.onkeydown=e=>{if(e.key=='Enter')send(inp.value)};
+document.getElementById('aiw').onclick=()=>window.open(wa(C[L].gw+(LQ?' '+LQ:'')),'_blank');
+})();
+let s="es";try{s=localStorage.getItem("enb-l")||"es"}catch(e){}
+setL(T[s]?s:"es");
+(async()=>{let A=null,S=null,LOC=false;
+const CATS=['c','n','s','l','b','t'],P=document.createElement('div'),st=document.createElement('style');
+st.id='adc';st.textContent='#adm{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.96);overflow:auto;padding:18px;display:none;color:#efe6d2}#adm .w{max-width:900px;margin:auto}#adm h3{color:#d4af37;font:600 28px Cormorant Garamond,Georgia,serif;margin:22px 0 10px}#adm .r{display:grid;grid-template-columns:130px 1fr 90px 48px;gap:6px;margin-bottom:6px}@media(max-width:560px){#adm .r{grid-template-columns:1fr 80px 48px}#adm .r select{grid-column:1/-1}}';
+document.head.append(st);P.id='adm';document.body.append(P);
+const bt=document.getElementById('adb');
+let AM,AG,AS;const q=s=>String(s).replace(/"/g,'&quot;');const m=t=>{const e=document.getElementById('am');if(e)e.textContent=t};
+function draw(){P.innerHTML=`<div class="w"><h3>Panel privado</h3><p>Solo tú ves este panel. Cambia los datos y pulsa Guardar y publicar.</p><h3>Carta y precios</h3>`+AM.map((x,i)=>`<div class="r"><select data-k="${i}" data-f="2">${CATS.map(c=>`<option value="${c}"${c==x[2]?' selected':''}>${w('c_'+c)}</option>`).join('')}</select><input data-k="${i}" data-f="0" value="${q(nm(x[0]))}"><input data-k="${i}" data-f="1" type="number" step="0.5" value="${x[1]}"><button class="btn o" data-d="${i}">✕</button></div>`).join('')+`<button class="btn o" id="ad">+ Añadir producto</button><h3>Fotos y vídeos</h3><input type="file" id="up" accept="image/*,video/*" multiple><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-top:10px">`+AG.map((g,i)=>`<div style="position:relative">${g.t=='v'?`<video src="${sr(g)}" muted style="width:100%;height:90px;object-fit:cover"></video>`:`<img src="${sr(g)}" alt="" style="width:100%;height:90px;object-fit:cover">`}<button class="btn o" data-g="${i}" style="position:absolute;top:2px;right:2px;padding:0 10px;min-height:32px">✕</button></div>`).join('')+`</div><h3>Ajustes</h3><label>WhatsApp (con prefijo, sin +)</label><input id="swa" value="${q(AS.wa)}"><label style="margin-top:8px">Precio de la entrada (vacío = texto original)</label><input id="spr" value="${q(AS.pr)}"><p style="margin-top:22px"><button class="btn" id="sv">Guardar y publicar</button><button class="btn o" id="cl">Cerrar</button></p><p id="am"></p></div>`}
+(async()=>{try{if(window.claude){const U=await claude.use('user');if(U&&U.isOwner()){A=await claude.use('artifact');S=await claude.use('assets')}}}catch(e){}})();
+const hx=async k=>{try{return [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(k)))].map(b=>b.toString(16).padStart(2,'0')).join('')}catch(e){return ''}};
+const unlock=async()=>{if(await hx(document.getElementById('cod').value.trim())!=='63f83635a8c74f6bc671cdb8a03306a3830951f018015a9c6fe4f994f7dc7455'){m('Código incorrecto');return}LOC=!A||!S;AM=JSON.parse(JSON.stringify(M));AG=(CFG.gal||[]).slice();AS={wa:NUM,pr:CFG.pr||''};draw()};
+bt.onclick=()=>{P.innerHTML='<div class="w"><h3>Acceso privado</h3><input id="cod" type="password" inputmode="numeric" autocomplete="off" placeholder="Código"><p style="margin-top:16px"><button class="btn" id="en">Entrar</button><button class="btn o" id="cl">Cerrar</button></p><p id="am"></p></div>';P.style.display='block'};
+P.addEventListener('input',e=>{const t=e.target,d=t.dataset;if(d.f!=null){const i=+d.k,f=+d.f;AM[i][f]=f==1?(+t.value||0):t.value}else if(t.id=='swa')AS.wa=t.value.replace(/[^0-9]/g,'');else if(t.id=='spr')AS.pr=t.value});
+P.addEventListener('change',async e=>{if(e.target.id!='up')return;for(const f of e.target.files){m('Subiendo '+f.name+'…');try{const t=f.type.startsWith('video')?'v':'i';if(LOC){if(f.size>8e6)throw 0;const u=await new Promise((ok,ko)=>{const fr=new FileReader();fr.onload=()=>ok(fr.result);fr.onerror=ko;fr.readAsDataURL(f)});AG.push({u,t})}else{const r=await S.upload(f);AG.push({id:r.id,t})}}catch(x){m('No se pudo subir '+f.name+(LOC?' (máximo 8 MB en este modo)':' (máximo 20 MB)'));return}}draw()});
+P.addEventListener('click',e=>{const t=e.target,d=t.dataset;if(d.d!=null){AM.splice(+d.d,1);draw()}else if(d.g!=null){AG.splice(+d.g,1);draw()}else if(t.id=='ad'){AM.push(['Nuevo',5,CAT,[]]);draw()}else if(t.id=='cl')P.style.display='none';else if(t.id=='en')unlock();else if(t.id=='sv')save()});
+async function save(){m('Publicando…');CFG.ts=Date.now();CFG.menu=AM.filter(x=>String(nm(x[0])).trim());CFG.gal=AG;CFG.wa=AS.wa;CFG.pr=AS.pr;const c=document.documentElement.cloneNode(true);['#adm','#adc','#lb','#aib','#aip','#aic'].forEach(s=>c.querySelector(s).remove());['#mg','#tb','#rg','#gal','#pg'].forEach(s=>c.querySelector(s).innerHTML='');c.querySelector('#products').style.display='';c.querySelector('#vit').style.display='';c.querySelector('#vid').style.display='';c.querySelectorAll('.act').forEach(x=>{x.classList.remove('act');x.style.transform=''});c.querySelector('#cfg').textContent=JSON.stringify(CFG).replace(/</g,String.fromCharCode(92)+'u003c');const H='<!DOCTYPE html>'+c.outerHTML;if(LOC){let ok=true;try{localStorage.setItem('enb-cfg',JSON.stringify(CFG))}catch(e){ok=false}if(CFG.menu.length)M.splice(0,M.length,...CFG.menu);gr();rm();const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([H],{type:'text/html'}));a.download='index.html';document.body.append(a);a.click();a.remove();m(ok?'Guardado y visible aquí. Se descargó index.html: súbelo a tu hosting sustituyendo el anterior para que lo vea todo el mundo.':'Se descargó index.html (no cabía en este navegador). Súbelo a tu hosting sustituyendo el anterior.');return}try{await A.publish(H);m('Publicado ✔')}catch(x){m('No se pudo publicar: '+(x.code||x.message||''))}}
+})();
+</script></body></html>
